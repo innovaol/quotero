@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos de Servicio — Quotero</title>
+    <meta name="description" content="Términos de servicio y condiciones de uso de la aplicación móvil y estación web Quotero, operada por Vertix Labs LLC.">
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        navy: {
+                            950: '#070B14',
+                            900: '#0A0E1A',
+                            850: '#0F1526',
+                            800: '#151D33',
+                            700: '#1E293B',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-navy-950 text-slate-100 font-sans antialiased selection:bg-sky-500 selection:text-white min-h-screen flex flex-col justify-between">
+
+    <!-- Header -->
+    <header class="border-b border-slate-800 bg-navy-950/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-[#0A0E1A] border border-slate-700/80 p-1.5 flex items-center justify-center">
+                    <img src="assets/icon.png" alt="Quotero" class="w-full h-full object-contain">
+                </div>
+                <div class="flex items-baseline">
+                    <span class="text-xl font-extrabold text-white">Quote</span>
+                    <span class="text-xl font-extrabold text-sky-400">ro</span>
+                </div>
+            </a>
+            <a href="index.html" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                <span>Volver al inicio</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-6 py-16 space-y-10 text-slate-300 text-sm leading-relaxed">
+        <div class="space-y-3 border-b border-slate-800 pb-8">
+            <span class="text-xs font-mono uppercase tracking-widest text-sky-400 font-bold">Acuerdo de Licencia y Servicio</span>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Términos de Servicio</h1>
+            <p class="text-slate-400 text-xs">Última actualización: 2 de noviembre de 2026 • Versión 1.0.0</p>
+        </div>
+
+        <section class="space-y-4">
+            <h2 class="text-lg font-bold text-white tracking-tight">1. Aceptación del Acuerdo</h2>
+            <p>
+                Los presentes Términos de Servicio y Acuerdo de Licencia de Usuario Final ("EULA") regulan el acceso, descarga y uso de la aplicación móvil y estación web <strong>Quotero</strong>, desarrollada y operada por <strong>Vertix Labs LLC</strong> ("Vertix Labs", "el Desarrollador").
+            </p>
+            <p>
+                Al instalar, abrir o utilizar Quotero, el usuario declara tener plena capacidad legal y acepta quedar vinculado por estos términos.
+            </p>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-lg font-bold text-white tracking-tight">2. Naturaleza del Software y Descargo Fiscal Estricto</h2>
+            <p>
+                Quotero es una herramienta privada de productividad comercial diseñada para la confección y emisión de presupuestos, cotizaciones, órdenes de servicio y comprobantes de cobro independientes.
+            </p>
+            <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-200 text-xs leading-relaxed space-y-2">
+                <p class="font-bold uppercase tracking-wider text-amber-300 flex items-center gap-2">
+                    <i data-lucide="alert-triangle" class="w-4 h-4"></i> Advertencia Legal y Tributaria
+                </p>
+                <p>
+                    El Software <strong>NO</strong> es un sistema de facturación fiscal electrónica certificado ni sustituye las obligaciones tributarias impuestas por administraciones tributarias gubernamentales (como SAT, DGI, DIAN, AFIP, SII, SUNAT, AEAT, IRS u homólogos). El usuario es el único responsable de declarar sus impuestos y emitir las facturas oficiales que exija su legislación local.
+                </p>
+            </div>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-lg font-bold text-white tracking-tight">3. Suscripciones PRO y Facturación (Apple / Google Play)</h2>
+            <p>
+                El acceso a las funciones avanzadas de Quotero PRO se gestiona mediante compras integradas (*In-App Purchases*) procesadas exclusivamente por <strong>Google Play Store Billing</strong> o <strong>Apple App Store</strong>:
+            </p>
+            <ul class="list-disc pl-5 space-y-2 text-slate-400">
+                <li><strong class="text-slate-200">Prueba Gratuita:</strong> Si se ofrece un periodo de prueba (ej. 7 días en el plan anual), podrás cancelar hasta 24 horas antes de su vencimiento sin que se genere ningún cobro.</li>
+                <li><strong class="text-slate-200">Renovación Automática:</strong> Las suscripciones se renuevan automáticamente al final de cada ciclo a menos que desactives la renovación en los ajustes de tu cuenta de Google Play o Apple ID.</li>
+                <li><strong class="text-slate-200">Cancelación:</strong> Desinstalar la aplicación del teléfono no cancela automáticamente la suscripción de la tienda. Puedes administrarla en cualquier momento desde la tienda oficial de tu dispositivo.</li>
+            </ul>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-lg font-bold text-white tracking-tight">4. Propiedad Intelectual y Licencia Limitada</h2>
+            <p>
+                Vertix Labs LLC conserva todos los derechos, títulos e intereses de propiedad intelectual sobre el código fuente, diseño, logotipos y arquitectura de Quotero. Se otorga al usuario una licencia personal, revocable, no exclusiva e intransferible para su uso comercial legítimo.
+            </p>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-lg font-bold text-white tracking-tight">5. Contacto</h2>
+            <p>
+                Para cualquier consulta contractual o legal:
+                <a href="mailto:soporte@quotero.app" class="text-sky-400 underline font-mono">soporte@quotero.app</a>.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-900 py-8 text-xs text-slate-500 bg-navy-950">
+        <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <span>© 2026 Vertix Labs LLC. Todos los derechos reservados.</span>
+            <div class="flex items-center gap-4">
+                <a href="privacy.html" class="hover:text-slate-300">Política de Privacidad</a>
+                <a href="index.html" class="hover:text-slate-300">Inicio</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

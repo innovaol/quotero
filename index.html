@@ -56,9 +56,6 @@
         .radial-glow {
             background: radial-gradient(circle at 50% -20%, rgba(56, 189, 248, 0.18) 0%, rgba(37, 99, 235, 0.08) 35%, transparent 70%);
         }
-        .emerald-glow {
-            background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
-        }
         .glass-card {
             background: rgba(15, 21, 38, 0.7);
             backdrop-filter: blur(12px);
@@ -87,41 +84,53 @@
 
             <!-- Menú Central Escritorio -->
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-                <a href="#features" class="hover:text-white transition-colors">Características</a>
-                <a href="#templates" class="hover:text-white transition-colors">Plantillas PDF</a>
-                <a href="#pricing" class="hover:text-white transition-colors">Planes</a>
-                <a href="#faq" class="hover:text-white transition-colors">Preguntas</a>
+                <a href="#features" class="hover:text-white transition-colors" data-i18n="nav_features">Características</a>
+                <a href="#templates" class="hover:text-white transition-colors" data-i18n="nav_templates">Plantillas PDF</a>
+                <a href="#pricing" class="hover:text-white transition-colors" data-i18n="nav_pricing">Planes</a>
+                <a href="#faq" class="hover:text-white transition-colors" data-i18n="nav_faq">Preguntas</a>
             </div>
 
-            <!-- Acciones -->
+            <!-- Acciones y Selector de Idioma -->
             <div class="hidden sm:flex items-center gap-3">
+                <!-- Selector ES / EN -->
+                <div class="inline-flex items-center rounded-xl bg-slate-900 border border-slate-800 p-0.5 text-xs font-mono font-semibold mr-1">
+                    <button id="langEsBtn" class="px-2.5 py-1 rounded-lg bg-sky-500/20 text-sky-400 font-bold transition-all">ES</button>
+                    <button id="langEnBtn" class="px-2.5 py-1 rounded-lg text-slate-400 hover:text-white transition-all">EN</button>
+                </div>
+
                 <a href="https://app.quotero.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-slate-200 hover:text-white hover:bg-slate-800/60 border border-slate-700/70 transition-all">
                     <i data-lucide="laptop" class="w-4 h-4 text-sky-400"></i>
-                    <span>Estación Web</span>
+                    <span data-i18n="nav_web_station">Estación Web</span>
                 </a>
                 <a href="#download" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white shadow-lg shadow-sky-500/20 transition-all">
                     <i data-lucide="arrow-down-to-line" class="w-4 h-4"></i>
-                    <span>Descargar App</span>
+                    <span data-i18n="nav_download">Descargar App</span>
                 </a>
             </div>
 
             <!-- Botón Móvil -->
-            <button id="mobileMenuBtn" class="sm:hidden p-2 rounded-lg text-slate-400 hover:text-white">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
+            <div class="sm:hidden flex items-center gap-2">
+                <div class="inline-flex items-center rounded-xl bg-slate-900 border border-slate-800 p-0.5 text-xs font-mono font-semibold">
+                    <button id="mobileLangEsBtn" class="px-2 py-0.5 rounded-lg bg-sky-500/20 text-sky-400 font-bold">ES</button>
+                    <button id="mobileLangEnBtn" class="px-2 py-0.5 rounded-lg text-slate-400">EN</button>
+                </div>
+                <button id="mobileMenuBtn" class="p-2 rounded-lg text-slate-400 hover:text-white">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
         </div>
 
         <!-- Menú Móvil Desplegable -->
         <div id="mobileMenu" class="hidden sm:hidden border-b border-slate-800 bg-navy-900/95 px-6 py-5 space-y-4">
-            <a href="#features" class="block text-slate-300 hover:text-white font-medium">Características</a>
-            <a href="#templates" class="block text-slate-300 hover:text-white font-medium">Plantillas PDF</a>
-            <a href="#pricing" class="block text-slate-300 hover:text-white font-medium">Planes</a>
-            <a href="#faq" class="block text-slate-300 hover:text-white font-medium">Preguntas</a>
+            <a href="#features" class="block text-slate-300 hover:text-white font-medium" data-i18n="nav_features">Características</a>
+            <a href="#templates" class="block text-slate-300 hover:text-white font-medium" data-i18n="nav_templates">Plantillas PDF</a>
+            <a href="#pricing" class="block text-slate-300 hover:text-white font-medium" data-i18n="nav_pricing">Planes</a>
+            <a href="#faq" class="block text-slate-300 hover:text-white font-medium" data-i18n="nav_faq">Preguntas</a>
             <div class="pt-4 border-t border-slate-800 flex flex-col gap-2">
-                <a href="https://app.quotero.app" target="_blank" class="w-full text-center py-2.5 rounded-lg border border-slate-700 text-sm font-semibold text-white">
+                <a href="https://app.quotero.app" target="_blank" class="w-full text-center py-2.5 rounded-lg border border-slate-700 text-sm font-semibold text-white" data-i18n="nav_web_station">
                     Abrir Estación Web
                 </a>
-                <a href="#download" class="w-full text-center py-2.5 rounded-lg bg-sky-500 text-sm font-semibold text-white">
+                <a href="#download" class="w-full text-center py-2.5 rounded-lg bg-sky-500 text-sm font-semibold text-white" data-i18n="nav_download">
                     Descargar App
                 </a>
             </div>
@@ -135,16 +144,16 @@
                 <!-- Píldora de Categoría -->
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/25 text-sky-300 text-xs font-semibold">
                     <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span>El nuevo estándar ágil para contratistas y profesionales</span>
+                    <span data-i18n="hero_pill">El nuevo estándar ágil para contratistas y profesionales</span>
                 </div>
 
                 <!-- Titular Principal -->
                 <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.12]">
-                    Cotizaciones que se aprueban <span class="bg-gradient-to-r from-sky-400 via-blue-400 to-emerald-400 bg-clip-text text-transparent">más rápido</span>.
+                    <span data-i18n="hero_title_1">Cotizaciones que se aprueban</span> <span class="bg-gradient-to-r from-sky-400 via-blue-400 to-emerald-400 bg-clip-text text-transparent" data-i18n="hero_title_highlight">más rápido</span>.
                 </h1>
 
                 <!-- Subtítulo -->
-                <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto font-normal">
+                <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto font-normal" data-i18n="hero_desc">
                     Elabora presupuestos ejecutivos en PDF, fírmalos digitalmente en pantalla y envíalos a tus clientes por WhatsApp o correo en menos de 60 segundos. Funciona 100% sin internet en tu teléfono celular y se sincroniza en tiempo real con tu computadora.
                 </p>
 
@@ -152,19 +161,19 @@
                 <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
                     <a href="https://app.quotero.app" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-bold bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white shadow-xl shadow-sky-500/25 transition-all text-base">
                         <i data-lucide="zap" class="w-5 h-5 text-amber-300"></i>
-                        <span>Probar Gratis en la Web</span>
+                        <span data-i18n="hero_cta_web">Probar Gratis en la Web</span>
                     </a>
                     <a href="#download" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold bg-navy-850 hover:bg-navy-800 text-slate-200 hover:text-white border border-slate-700/80 transition-all text-base">
                         <i data-lucide="smartphone" class="w-5 h-5 text-slate-400"></i>
-                        <span>Descargar para Celular</span>
+                        <span data-i18n="hero_cta_mobile">Descargar para Celular</span>
                     </a>
                 </div>
 
                 <!-- Trust Badges -->
                 <div class="pt-6 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 font-mono">
-                    <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> 100% Offline-First</span>
-                    <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Sin registros obligatorios</span>
-                    <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> PDFs limpios y vectoriales</span>
+                    <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> <span data-i18n="badge_offline">100% Offline-First</span></span>
+                    <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> <span data-i18n="badge_no_signup">Sin registros obligatorios</span></span>
+                    <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> <span data-i18n="badge_clean_pdf">PDFs limpios y vectoriales</span></span>
                 </div>
             </div>
 
@@ -173,7 +182,6 @@
                 <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-sky-500/20 via-blue-500/10 to-emerald-500/20 blur-xl opacity-60"></div>
                 
                 <div class="relative rounded-2xl sm:rounded-3xl bg-navy-900 border border-slate-800 shadow-2xl p-4 sm:p-8 overflow-hidden">
-                    <!-- Barra de Ventana -->
                     <div class="flex items-center justify-between pb-4 sm:pb-6 border-b border-slate-800 mb-6">
                         <div class="flex items-center gap-2">
                             <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
@@ -184,83 +192,75 @@
                         <div class="flex items-center gap-2">
                             <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
                                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                                Sincronizado en tiempo real
+                                <span data-i18n="mockup_sync">Sincronizado en tiempo real</span>
                             </span>
                         </div>
                     </div>
 
-                    <!-- Contenido de Cotización Simulada -->
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-                        <!-- Columna Izquierda: Datos del Presupuesto -->
                         <div class="md:col-span-7 space-y-5">
                             <div class="flex items-start justify-between">
                                 <div>
-                                    <span class="text-xs font-mono uppercase tracking-wider text-sky-400 font-bold">Cotización Formal</span>
+                                    <span class="text-xs font-mono uppercase tracking-wider text-sky-400 font-bold" data-i18n="mockup_doc_type">Cotización Formal</span>
                                     <h3 class="text-2xl font-black text-white mt-0.5">COT-0042</h3>
-                                    <p class="text-xs text-slate-400 mt-1">Cliente: <strong class="text-slate-200">Constructora Horizonte S.A.</strong></p>
+                                    <p class="text-xs text-slate-400 mt-1"><span data-i18n="mockup_client">Cliente:</span> <strong class="text-slate-200">Constructora Horizonte S.A.</strong></p>
                                 </div>
-                                <span class="px-2.5 py-1 rounded-lg bg-sky-500/15 text-sky-300 font-mono text-xs font-bold border border-sky-500/30">
+                                <span class="px-2.5 py-1 rounded-lg bg-sky-500/15 text-sky-300 font-mono text-xs font-bold border border-sky-500/30" data-i18n="mockup_validity">
                                     Vigente: 15 días
                                 </span>
                             </div>
 
-                            <!-- Tabla de Partidas -->
                             <div class="rounded-xl border border-slate-800 bg-navy-950/70 divide-y divide-slate-800/80 text-xs">
                                 <div class="p-3 flex justify-between items-center text-slate-400 font-mono">
-                                    <span>CONCEPTO / SERVICIO</span>
-                                    <span>SUBTOTAL</span>
+                                    <span data-i18n="mockup_th_concept">CONCEPTO / SERVICIO</span>
+                                    <span data-i18n="mockup_th_total">SUBTOTAL</span>
                                 </div>
                                 <div class="p-3 flex justify-between items-center text-slate-200">
                                     <div>
-                                        <p class="font-semibold">Instalación eléctrica y tablero trifásico</p>
-                                        <p class="text-[11px] text-slate-400">Incluye certificación y mano de obra calificada</p>
+                                        <p class="font-semibold" data-i18n="mockup_item1_title">Instalación eléctrica y tablero trifásico</p>
+                                        <p class="text-[11px] text-slate-400" data-i18n="mockup_item1_sub">Incluye certificación y mano de obra calificada</p>
                                     </div>
                                     <span class="font-mono font-bold">$850.00</span>
                                 </div>
                                 <div class="p-3 flex justify-between items-center text-slate-200">
                                     <div>
-                                        <p class="font-semibold">Luminarias LED industriales 100W (x6)</p>
-                                        <p class="text-[11px] text-slate-400">Garantía del fabricante 2 años</p>
+                                        <p class="font-semibold" data-i18n="mockup_item2_title">Luminarias LED industriales 100W (x6)</p>
+                                        <p class="text-[11px] text-slate-400" data-i18n="mockup_item2_sub">Garantía del fabricante 2 años</p>
                                     </div>
                                     <span class="font-mono font-bold">$420.00</span>
                                 </div>
                             </div>
 
-                            <!-- Totales -->
                             <div class="rounded-xl bg-slate-800/40 p-4 border border-slate-700/60 flex items-center justify-between">
-                                <span class="text-sm font-semibold text-slate-300">Total a Facturar</span>
+                                <span class="text-sm font-semibold text-slate-300" data-i18n="mockup_total_label">Total a Facturar</span>
                                 <div class="text-right">
                                     <span class="text-2xl font-black text-emerald-400 font-mono">$1,270.00</span>
-                                    <span class="block text-[11px] text-slate-400">Impuestos y desglose incluidos</span>
+                                    <span class="block text-[11px] text-slate-400" data-i18n="mockup_taxes_included">Impuestos y desglose incluidos</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Columna Derecha: Firma y Acciones Rápidas -->
                         <div class="md:col-span-5 space-y-4">
-                            <!-- Tarjeta de Firma Digital -->
                             <div class="rounded-xl border border-slate-800 bg-navy-950/90 p-4 space-y-2">
-                                <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-bold block">Firma Digital Autorizada</span>
+                                <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-bold block" data-i18n="mockup_signature_title">Firma Digital Autorizada</span>
                                 <div class="h-20 rounded-lg bg-navy-900 border border-slate-800 flex items-center justify-center p-2 relative overflow-hidden">
-                                    <!-- Trazo vectorial simulado -->
                                     <svg class="w-36 h-12 text-sky-400" viewBox="0 0 100 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
                                         <path d="M10 28 C 25 10, 30 35, 45 15 C 55 5, 50 35, 70 20 C 80 10, 85 25, 95 18" />
                                     </svg>
                                     <span class="absolute bottom-1 right-2 text-[10px] font-mono text-emerald-400 flex items-center gap-1">
-                                        <i data-lucide="shield-check" class="w-3 h-3"></i> Autenticada
+                                        <i data-lucide="shield-check" class="w-3 h-3"></i> <span data-i18n="mockup_authenticated">Autenticada</span>
                                     </span>
                                 </div>
                             </div>
 
-                            <!-- Botones de Despacho 1-Click -->
                             <div class="space-y-2 pt-1">
                                 <button class="w-full py-2.5 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs flex items-center justify-center gap-2 transition-colors">
                                     <i data-lucide="message-circle" class="w-4 h-4"></i>
-                                    <span>Compartir por WhatsApp</span>
+                                    <span data-i18n="mockup_share_wa">Compartir por WhatsApp</span>
                                 </button>
                                 <button class="w-full py-2.5 px-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs flex items-center justify-center gap-2 border border-slate-700 transition-colors">
                                     <i data-lucide="file-down" class="w-4 h-4 text-sky-400"></i>
-                                    <span>Descargar PDF Ejecutivo</span>
+                                    <span data-i18n="mockup_dl_pdf">Descargar PDF Ejecutivo</span>
                                 </button>
                             </div>
                         </div>
@@ -274,80 +274,208 @@
     <section id="features" class="py-24 border-t border-slate-900 bg-navy-900/40 relative">
         <div class="max-w-7xl mx-auto px-6">
             <div class="max-w-2xl mb-16">
-                <span class="text-xs font-bold font-mono uppercase tracking-widest text-sky-400">Ingeniería para el Trabajo Real</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-4 tracking-tight">
+                <span class="text-xs font-bold font-mono uppercase tracking-widest text-sky-400" data-i18n="feat_tag">Ingeniería para el Trabajo Real</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-4 tracking-tight" data-i18n="feat_title">
                     Todo lo que necesitas para cerrar tratos sin perder tiempo.
                 </h2>
-                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                <p class="text-slate-400 text-sm sm:text-base leading-relaxed" data-i18n="feat_sub">
                     Olvídate de Word, Excel desconfigurado o apps complejas que requieren internet obligatorio en plena obra o visita a clientes.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
                 <div class="rounded-2xl glass-card p-6 sm:p-8 space-y-4 hover:border-sky-500/40 transition-colors">
                     <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/25 flex items-center justify-center text-sky-400">
                         <i data-lucide="wifi-off" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white tracking-tight">100% Offline-First</h3>
-                    <p class="text-sm text-slate-300 leading-relaxed">
+                    <h3 class="text-xl font-bold text-white tracking-tight" data-i18n="feat1_title">100% Offline-First</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed" data-i18n="feat1_desc">
                         Crea documentos, consulta precios y genera PDFs sin conexión a internet. Cuando recuperas señal, se sincroniza automáticamente con la nube.
                     </p>
                 </div>
 
-                <!-- Feature 2 -->
                 <div class="rounded-2xl glass-card p-6 sm:p-8 space-y-4 hover:border-sky-500/40 transition-colors">
                     <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-emerald-400">
                         <i data-lucide="laptop" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white tracking-tight">Móvil & Computadora</h3>
-                    <p class="text-sm text-slate-300 leading-relaxed">
+                    <h3 class="text-xl font-bold text-white tracking-tight" data-i18n="feat2_title">Móvil & Computadora</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed" data-i18n="feat2_desc">
                         Inicia un presupuesto en tu teléfono en la calle y termínalo cómodamente en tu laptop desde la Estación Web (<span class="font-mono text-sky-300">app.quotero.app</span>).
                     </p>
                 </div>
 
-                <!-- Feature 3 -->
                 <div class="rounded-2xl glass-card p-6 sm:p-8 space-y-4 hover:border-sky-500/40 transition-colors">
                     <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-amber-400">
                         <i data-lucide="pen-tool" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white tracking-tight">Firma Digital en Pantalla</h3>
-                    <p class="text-sm text-slate-300 leading-relaxed">
+                    <h3 class="text-xl font-bold text-white tracking-tight" data-i18n="feat3_title">Firma Digital en Pantalla</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed" data-i18n="feat3_desc">
                         Dibuja tu firma gráfica con el dedo en tu celular. Queda incrustada en alta resolución vectorial con sello de autenticidad en cada PDF.
                     </p>
                 </div>
 
-                <!-- Feature 4 -->
                 <div class="rounded-2xl glass-card p-6 sm:p-8 space-y-4 hover:border-sky-500/40 transition-colors">
                     <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/25 flex items-center justify-center text-purple-400">
                         <i data-lucide="building-2" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white tracking-tight">Multi-Empresa Independiente</h3>
-                    <p class="text-sm text-slate-300 leading-relaxed">
+                    <h3 class="text-xl font-bold text-white tracking-tight" data-i18n="feat4_title">Multi-Empresa Independiente</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed" data-i18n="feat4_desc">
                         ¿Manejas más de un negocio? Con el Plan PRO gestiona hasta 5 empresas distintas, cada una con su propio logotipo, catálogo de precios y numeración.
                     </p>
                 </div>
 
-                <!-- Feature 5 -->
                 <div class="rounded-2xl glass-card p-6 sm:p-8 space-y-4 hover:border-sky-500/40 transition-colors">
                     <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/25 flex items-center justify-center text-blue-400">
                         <i data-lucide="file-check" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white tracking-tight">8 Plantillas Ejecutivas</h3>
-                    <p class="text-sm text-slate-300 leading-relaxed">
+                    <h3 class="text-xl font-bold text-white tracking-tight" data-i18n="feat5_title">8 Plantillas Ejecutivas</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed" data-i18n="feat5_desc">
                         Diseños clásicos, modernos, corporativos y minimalistas. Personaliza tus colores de marca para entregar presupuestos con presencia impecable.
                     </p>
                 </div>
 
-                <!-- Feature 6 -->
                 <div class="rounded-2xl glass-card p-6 sm:p-8 space-y-4 hover:border-sky-500/40 transition-colors">
                     <div class="w-12 h-12 rounded-xl bg-rose-500/10 border border-rose-500/25 flex items-center justify-center text-rose-400">
                         <i data-lucide="shield-check" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white tracking-tight">Tus Datos Son Tuyos</h3>
-                    <p class="text-sm text-slate-300 leading-relaxed">
+                    <h3 class="text-xl font-bold text-white tracking-tight" data-i18n="feat6_title">Tus Datos Son Tuyos</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed" data-i18n="feat6_desc">
                         Respaldos locales en un toque (.JSON) y cifrado de grado bancario (TLS 1.3 + AES-256) en la nube. Jamás vendemos tu base de clientes a terceros.
                     </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE PLANTILLAS PDF (#templates) -->
+    <section id="templates" class="py-24 border-t border-slate-900 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-bold font-mono uppercase tracking-widest text-sky-400" data-i18n="tpl_tag">Diseño Ejecutivo y Profesional</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-i18n="tpl_title">
+                    8 Plantillas PDF para cada tipo de negocio
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base leading-relaxed" data-i18n="tpl_desc">
+                    Desde estimaciones minimalistas de 1 página hasta presupuestos corporativos con desglose de anticipos e impuestos.
+                </p>
+            </div>
+
+            <!-- Grid de Plantillas Destacadas -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Template 1: Clásica -->
+                <div class="rounded-2xl glass-card p-5 space-y-4 border border-slate-800 hover:border-sky-500/40 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="h-44 rounded-xl bg-slate-900 border border-slate-800 p-3 flex flex-col justify-between text-[10px] font-mono text-slate-400 overflow-hidden relative group">
+                            <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                                <span class="font-bold text-slate-200">EMPRESA / LOGO</span>
+                                <span class="text-sky-400 font-bold">#COT-001</span>
+                            </div>
+                            <div class="space-y-1.5 py-2">
+                                <div class="h-2 rounded bg-slate-800 w-3/4"></div>
+                                <div class="h-2 rounded bg-slate-800 w-1/2"></div>
+                                <div class="h-2 rounded bg-slate-800 w-5/6"></div>
+                            </div>
+                            <div class="flex justify-between items-center border-t border-slate-800 pt-2 text-slate-300">
+                                <span>TOTAL</span>
+                                <span class="font-bold text-white font-mono">$1,450.00</span>
+                            </div>
+                        </div>
+                        <h4 class="text-base font-bold text-white mt-3" data-i18n="tpl1_name">Clásica Tradicional</h4>
+                        <p class="text-xs text-slate-400 mt-1" data-i18n="tpl1_desc">Limpia, sobria y de lectura directa. Ideal para todo tipo de oficios y servicios comerciales.</p>
+                    </div>
+                    <span class="inline-flex items-center gap-1.5 text-[11px] font-mono text-emerald-400">
+                        <i data-lucide="check" class="w-3.5 h-3.5"></i> <span data-i18n="tpl_free_badge">Incluida en Plan Gratis</span>
+                    </span>
+                </div>
+
+                <!-- Template 2: Ejecutiva Moderna -->
+                <div class="rounded-2xl glass-card p-5 space-y-4 border border-sky-500/40 shadow-lg shadow-sky-500/5 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="h-44 rounded-xl bg-slate-900 border border-slate-800 p-3 flex flex-col justify-between text-[10px] font-mono text-slate-400 overflow-hidden relative">
+                            <div class="flex justify-between items-center bg-sky-500/15 p-2 rounded -mx-1 -mt-1 border border-sky-500/30">
+                                <span class="font-bold text-sky-300">CORPORATIVO PRO</span>
+                                <span class="text-white font-bold">#COT-002</span>
+                            </div>
+                            <div class="space-y-1.5 py-2">
+                                <div class="h-2 rounded bg-slate-800 w-full"></div>
+                                <div class="h-2 rounded bg-slate-800 w-2/3"></div>
+                            </div>
+                            <div class="flex justify-between items-center bg-slate-800/80 p-2 rounded -mx-1 -mb-1 text-slate-200">
+                                <span>TOTAL NETO</span>
+                                <span class="font-bold text-emerald-400 font-mono">$3,890.00</span>
+                            </div>
+                        </div>
+                        <h4 class="text-base font-bold text-white mt-3" data-i18n="tpl2_name">Ejecutiva Moderna</h4>
+                        <p class="text-xs text-slate-400 mt-1" data-i18n="tpl2_desc">Encabezado de color corporativo, desglose visual de anticipos y firma digital destacada.</p>
+                    </div>
+                    <span class="inline-flex items-center gap-1.5 text-[11px] font-mono text-sky-400">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> <span data-i18n="tpl_pro_badge">Plan Quotero PRO</span>
+                    </span>
+                </div>
+
+                <!-- Template 3: Minimalista -->
+                <div class="rounded-2xl glass-card p-5 space-y-4 border border-slate-800 hover:border-sky-500/40 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="h-44 rounded-xl bg-slate-900 border border-slate-800 p-3 flex flex-col justify-between text-[10px] font-mono text-slate-400 overflow-hidden relative">
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-white">MINIMAL</span>
+                                <span class="text-slate-500">2026</span>
+                            </div>
+                            <div class="space-y-2 py-2">
+                                <div class="h-1.5 rounded bg-slate-800 w-3/4"></div>
+                                <div class="h-1.5 rounded bg-slate-800 w-4/5"></div>
+                                <div class="h-1.5 rounded bg-slate-800 w-2/3"></div>
+                            </div>
+                            <div class="text-right text-slate-200 font-bold border-t border-slate-800 pt-2 font-mono">
+                                $920.00
+                            </div>
+                        </div>
+                        <h4 class="text-base font-bold text-white mt-3" data-i18n="tpl3_name">Minimalista de Alto Impacto</h4>
+                        <p class="text-xs text-slate-400 mt-1" data-i18n="tpl3_desc">Tipografía elegante en escala de grises para agencias de diseño, consultores y freelancers.</p>
+                    </div>
+                    <span class="inline-flex items-center gap-1.5 text-[11px] font-mono text-sky-400">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> <span data-i18n="tpl_pro_badge">Plan Quotero PRO</span>
+                    </span>
+                </div>
+
+                <!-- Template 4: Contratista / Construcción -->
+                <div class="rounded-2xl glass-card p-5 space-y-4 border border-slate-800 hover:border-sky-500/40 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="h-44 rounded-xl bg-slate-900 border border-slate-800 p-3 flex flex-col justify-between text-[10px] font-mono text-slate-400 overflow-hidden relative">
+                            <div class="flex justify-between items-center border-b border-amber-500/40 pb-2">
+                                <span class="font-bold text-amber-300">ORDEN COMERCIAL</span>
+                                <span class="text-slate-300 font-mono">#048</span>
+                            </div>
+                            <div class="space-y-1.5 py-2">
+                                <div class="h-2 rounded bg-slate-800 w-full"></div>
+                                <div class="h-2 rounded bg-slate-800 w-1/2"></div>
+                            </div>
+                            <div class="flex justify-between items-center border-t border-slate-800 pt-2 text-slate-200">
+                                <span>TOTAL</span>
+                                <span class="font-bold text-amber-400 font-mono">$5,400.00</span>
+                            </div>
+                        </div>
+                        <h4 class="text-base font-bold text-white mt-3" data-i18n="tpl4_name">Contratista & Servicios</h4>
+                        <p class="text-xs text-slate-400 mt-1" data-i18n="tpl4_desc">Enfoque detallado en materiales, mano de obra, validez temporal y términos de pago.</p>
+                    </div>
+                    <span class="inline-flex items-center gap-1.5 text-[11px] font-mono text-sky-400">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> <span data-i18n="tpl_pro_badge">Plan Quotero PRO</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Barra de Resumen de Estilos -->
+            <div class="mt-12 p-6 rounded-2xl glass-card border border-slate-800 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-slate-400">
+                <span class="text-slate-200 font-bold" data-i18n="tpl_bar_title">Catálogo Completo de 8 Estilos:</span>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Clásica</span>
+                    <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Moderna</span>
+                    <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Ejecutiva</span>
+                    <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Minimalista</span>
+                    <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Compacta</span>
+                    <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Corporativa</span>
+                    <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Contratista</span>
+                    <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Elegante</span>
                 </div>
             </div>
         </div>
@@ -357,11 +485,11 @@
     <section id="pricing" class="py-24 border-t border-slate-900">
         <div class="max-w-5xl mx-auto px-6">
             <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
-                <span class="text-xs font-bold font-mono uppercase tracking-widest text-sky-400">Planes Simples y Claros</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                <span class="text-xs font-bold font-mono uppercase tracking-widest text-sky-400" data-i18n="price_tag">Planes Simples y Claros</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-i18n="price_title">
                     Comienza gratis. Escala cuando tu negocio crezca.
                 </h2>
-                <p class="text-slate-400 text-sm sm:text-base">
+                <p class="text-slate-400 text-sm sm:text-base" data-i18n="price_desc">
                     Sin comisiones ocultas ni sorpresas al facturar.
                 </p>
             </div>
@@ -371,44 +499,44 @@
                 <div class="rounded-3xl glass-card p-8 flex flex-col justify-between border border-slate-800">
                     <div class="space-y-6">
                         <div class="space-y-2">
-                            <span class="text-xs font-mono font-bold text-slate-400 uppercase tracking-widest">Plan Base</span>
-                            <h3 class="text-2xl font-bold text-white">Gratuito</h3>
-                            <p class="text-slate-400 text-xs leading-relaxed">
+                            <span class="text-xs font-mono font-bold text-slate-400 uppercase tracking-widest" data-i18n="plan_free_tag">Plan Base</span>
+                            <h3 class="text-2xl font-bold text-white" data-i18n="plan_free_name">Gratuito</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed" data-i18n="plan_free_desc">
                                 Ideal para independientes que están comenzando o tienen bajo volumen mensual.
                             </p>
                         </div>
 
                         <div class="flex items-baseline gap-2">
                             <span class="text-4xl font-extrabold text-white font-mono">$0</span>
-                            <span class="text-xs text-slate-400">para siempre</span>
+                            <span class="text-xs text-slate-400" data-i18n="plan_free_period">para siempre</span>
                         </div>
 
                         <ul class="space-y-3 pt-4 border-t border-slate-800 text-sm text-slate-300">
                             <li class="flex items-center gap-2.5">
                                 <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                                <span>Hasta 4 documentos nuevos por mes</span>
+                                <span data-i18n="plan_free_item1">Hasta 4 documentos nuevos por mes</span>
                             </li>
                             <li class="flex items-center gap-2.5">
                                 <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                                <span>1 perfil de empresa o negocio</span>
+                                <span data-i18n="plan_free_item2">1 perfil de empresa o negocio</span>
                             </li>
                             <li class="flex items-center gap-2.5">
                                 <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                                <span>2 plantillas base en PDF</span>
+                                <span data-i18n="plan_free_item3">2 plantillas base en PDF</span>
                             </li>
                             <li class="flex items-center gap-2.5">
                                 <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                                <span>100% almacenamiento local en el celular</span>
+                                <span data-i18n="plan_free_item4">100% almacenamiento local en el celular</span>
                             </li>
                             <li class="flex items-center gap-2.5 text-slate-500">
                                 <i data-lucide="x" class="w-4 h-4 text-slate-600 shrink-0"></i>
-                                <span class="line-through">Marca de agua en PDF</span>
+                                <span class="line-through" data-i18n="plan_free_item5">Marca de agua en PDF</span>
                             </li>
                         </ul>
                     </div>
 
                     <div class="pt-8">
-                        <a href="https://app.quotero.app" target="_blank" class="w-full py-3 rounded-xl border border-slate-700 hover:border-slate-600 text-slate-200 hover:text-white font-semibold text-sm flex items-center justify-center transition-all">
+                        <a href="https://app.quotero.app" target="_blank" class="w-full py-3 rounded-xl border border-slate-700 hover:border-slate-600 text-slate-200 hover:text-white font-semibold text-sm flex items-center justify-center transition-all" data-i18n="plan_free_cta">
                             Usar Plan Gratis
                         </a>
                     </div>
@@ -416,58 +544,58 @@
 
                 <!-- Plan PRO -->
                 <div class="relative rounded-3xl bg-gradient-to-b from-navy-850 to-navy-900 border-2 border-sky-500/80 p-8 flex flex-col justify-between shadow-2xl shadow-sky-500/10">
-                    <div class="absolute -top-3.5 right-6 px-3.5 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-extrabold uppercase tracking-wider shadow-md">
+                    <div class="absolute -top-3.5 right-6 px-3.5 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-extrabold uppercase tracking-wider shadow-md" data-i18n="plan_pro_badge">
                         Recomendado
                     </div>
 
                     <div class="space-y-6">
                         <div class="space-y-2">
-                            <span class="text-xs font-mono font-bold text-sky-400 uppercase tracking-widest">Profesionales & Negocios</span>
+                            <span class="text-xs font-mono font-bold text-sky-400 uppercase tracking-widest" data-i18n="plan_pro_tag">Profesionales & Negocios</span>
                             <h3 class="text-2xl font-bold text-white flex items-center gap-2">
                                 Quotero PRO
                                 <i data-lucide="sparkles" class="w-5 h-5 text-amber-400"></i>
                             </h3>
-                            <p class="text-slate-400 text-xs leading-relaxed">
+                            <p class="text-slate-400 text-xs leading-relaxed" data-i18n="plan_pro_desc">
                                 Acceso total e ilimitado para quienes facturan activamente semana a semana.
                             </p>
                         </div>
 
                         <div class="flex items-baseline gap-2">
                             <span class="text-4xl font-extrabold text-white font-mono">$4.99</span>
-                            <span class="text-xs text-slate-400">/ mes o $39.99 / año (7 días de prueba gratis)</span>
+                            <span class="text-xs text-slate-400" data-i18n="plan_pro_period">/ mes o $39.99 / año (7 días de prueba gratis)</span>
                         </div>
 
                         <ul class="space-y-3 pt-4 border-t border-slate-800 text-sm text-slate-200">
                             <li class="flex items-center gap-2.5 font-medium">
                                 <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-400 shrink-0"></i>
-                                <span><strong>Documentos y cotizaciones ilimitadas</strong></span>
+                                <span data-i18n="plan_pro_item1"><strong>Documentos y cotizaciones ilimitadas</strong></span>
                             </li>
                             <li class="flex items-center gap-2.5">
                                 <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-400 shrink-0"></i>
-                                <span><strong>Cero marcas de agua</strong> (PDFs 100% con tu marca)</span>
+                                <span data-i18n="plan_pro_item2"><strong>Cero marcas de agua</strong> (PDFs 100% con tu marca)</span>
                             </li>
                             <li class="flex items-center gap-2.5">
                                 <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-400 shrink-0"></i>
-                                <span>Hasta 5 empresas independientes</span>
+                                <span data-i18n="plan_pro_item3">Hasta 5 empresas independientes</span>
                             </li>
                             <li class="flex items-center gap-2.5">
                                 <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-400 shrink-0"></i>
-                                <span>Todas las 8 plantillas ejecutivas avanzadas</span>
+                                <span data-i18n="plan_pro_item4">Todas las 8 plantillas ejecutivas avanzadas</span>
                             </li>
                             <li class="flex items-center gap-2.5">
                                 <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-400 shrink-0"></i>
-                                <span>Firma digital autorizada en pantalla</span>
+                                <span data-i18n="plan_pro_item5">Firma digital autorizada en pantalla</span>
                             </li>
                             <li class="flex items-center gap-2.5">
                                 <i data-lucide="check-circle-2" class="w-4 h-4 text-sky-400 shrink-0"></i>
-                                <span>Sincronización en la nube y Estación Web</span>
+                                <span data-i18n="plan_pro_item6">Sincronización en la nube y Estación Web</span>
                             </li>
                         </ul>
                     </div>
 
                     <div class="pt-8">
                         <a href="https://app.quotero.app" target="_blank" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-sky-500/25 transition-all">
-                            <span>Comenzar Prueba Gratis</span>
+                            <span data-i18n="plan_pro_cta">Comenzar Prueba Gratis</span>
                             <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </a>
                     </div>
@@ -480,51 +608,47 @@
     <section id="faq" class="py-24 border-t border-slate-900 bg-navy-900/30">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
-                <span class="text-xs font-bold font-mono uppercase tracking-widest text-sky-400">Resolvemos tus Dudas</span>
-                <h2 class="text-3xl font-extrabold text-white tracking-tight">Preguntas Frecuentes</h2>
+                <span class="text-xs font-bold font-mono uppercase tracking-widest text-sky-400" data-i18n="faq_tag">Resolvemos tus Dudas</span>
+                <h2 class="text-3xl font-extrabold text-white tracking-tight" data-i18n="faq_title">Preguntas Frecuentes</h2>
             </div>
 
             <div class="space-y-4">
-                <!-- FAQ Item 1 -->
                 <details class="group rounded-2xl glass-card p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
                     <summary class="flex items-center justify-between font-bold text-white text-base">
-                        <span>¿Funciona la aplicación sin conexión a internet?</span>
+                        <span data-i18n="faq1_q">¿Funciona la aplicación sin conexión a internet?</span>
                         <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform"></i>
                     </summary>
-                    <p class="mt-4 text-slate-300 text-sm leading-relaxed">
+                    <p class="mt-4 text-slate-300 text-sm leading-relaxed" data-i18n="faq1_a">
                         Sí, totalmente. Quotero fue diseñada con arquitectura Offline-First. Toda tu información comercial, clientes y productos se guardan en la memoria segura de tu teléfono. Puedes crear cotizaciones y emitir PDFs en medio de una visita o en carretera sin señal. En cuanto te conectes a internet, si tienes cuenta vinculada, se respaldará automáticamente.
                     </p>
                 </details>
 
-                <!-- FAQ Item 2 -->
                 <details class="group rounded-2xl glass-card p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
                     <summary class="flex items-center justify-between font-bold text-white text-base">
-                        <span>¿Cómo puedo acceder a mis datos desde la computadora?</span>
+                        <span data-i18n="faq2_q">¿Cómo puedo acceder a mis datos desde la computadora?</span>
                         <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform"></i>
                     </summary>
-                    <p class="mt-4 text-slate-300 text-sm leading-relaxed">
+                    <p class="mt-4 text-slate-300 text-sm leading-relaxed" data-i18n="faq2_a">
                         Basta con vincular tu correo electrónico en la app móvil (tocando el ícono de la nube) con tu Plan PRO activo. Luego abres <a href="https://app.quotero.app" class="text-sky-400 underline font-mono">app.quotero.app</a> en cualquier navegador de PC o Mac, introduces tu correo y recibirás un código de acceso de un solo uso. Tus cotizaciones y catálogo aparecerán de inmediato.
                     </p>
                 </details>
 
-                <!-- FAQ Item 3 -->
                 <details class="group rounded-2xl glass-card p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
                     <summary class="flex items-center justify-between font-bold text-white text-base">
-                        <span>¿Mis clientes necesitan descargar una aplicación para ver o firmar?</span>
+                        <span data-i18n="faq3_q">¿Mis clientes necesitan descargar una aplicación para ver o firmar?</span>
                         <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform"></i>
                     </summary>
-                    <p class="mt-4 text-slate-300 text-sm leading-relaxed">
+                    <p class="mt-4 text-slate-300 text-sm leading-relaxed" data-i18n="faq3_a">
                         No, en lo absoluto. Puedes enviarles el archivo PDF directo por WhatsApp o correo, o enviarles un enlace web interactivo seguro que se abre en el navegador de su teléfono o computadora sin instalar nada.
                     </p>
                 </details>
 
-                <!-- FAQ Item 4 -->
                 <details class="group rounded-2xl glass-card p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
                     <summary class="flex items-center justify-between font-bold text-white text-base">
-                        <span>¿Puedo cancelar mi suscripción en cualquier momento?</span>
+                        <span data-i18n="faq4_q">¿Puedo cancelar mi suscripción en cualquier momento?</span>
                         <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform"></i>
                     </summary>
-                    <p class="mt-4 text-slate-300 text-sm leading-relaxed">
+                    <p class="mt-4 text-slate-300 text-sm leading-relaxed" data-i18n="faq4_a">
                         Sí, con total libertad. La suscripción se gestiona directamente a través de las tiendas oficiales (Google Play Store o Apple App Store). Puedes desactivar la renovación automática en los ajustes de tu cuenta con 1 toque y conservarás tus funciones PRO hasta el final del periodo facturado.
                     </p>
                 </details>
@@ -541,21 +665,21 @@
                 </div>
             </div>
 
-            <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+            <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight" data-i18n="cta_final_title">
                 Empieza hoy a enviar presupuestos que impresionan.
             </h2>
-            <p class="text-slate-300 text-base max-w-xl mx-auto leading-relaxed">
+            <p class="text-slate-300 text-base max-w-xl mx-auto leading-relaxed" data-i18n="cta_final_desc">
                 Únete a miles de profesionales independientes y contratistas que ahorran horas de oficina cada semana con Quotero.
             </p>
 
             <div class="pt-4 flex flex-wrap items-center justify-center gap-4">
                 <a href="https://app.quotero.app" target="_blank" class="inline-flex items-center gap-3 px-6 py-3.5 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold text-sm shadow-xl shadow-sky-500/25 transition-all">
                     <i data-lucide="laptop" class="w-5 h-5"></i>
-                    <span>Abrir Estación Web</span>
+                    <span data-i18n="cta_open_web">Abrir Estación Web</span>
                 </a>
-                <a href="#" class="inline-flex items-center gap-3 px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-sm transition-all">
+                <a href="#pricing" class="inline-flex items-center gap-3 px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-sm transition-all">
                     <i data-lucide="smartphone" class="w-5 h-5 text-emerald-400"></i>
-                    <span>Próximamente en Play Store & App Store</span>
+                    <span data-i18n="cta_stores">Próximamente en Play Store & App Store</span>
                 </a>
             </div>
         </div>
@@ -569,21 +693,22 @@
                     <img src="assets/icon.png" alt="Quotero" class="w-full h-full object-contain">
                 </div>
                 <span class="text-slate-300 font-bold">Quotero</span>
-                <span>• Desarrollado y operado por <a href="https://vertixlabs.dev" target="_blank" class="text-slate-400 hover:text-white underline">Vertix Labs LLC</a></span>
+                <span>• <span data-i18n="footer_by">Desarrollado y operado por</span> <a href="https://vertixlabs.dev" target="_blank" class="text-slate-400 hover:text-white underline">Vertix Labs LLC</a></span>
             </div>
 
             <div class="flex items-center gap-6">
-                <a href="https://vertixlabs.dev/privacy.html" target="_blank" class="hover:text-slate-300 transition-colors">Privacidad</a>
-                <a href="https://vertixlabs.dev/terms.html" target="_blank" class="hover:text-slate-300 transition-colors">Términos</a>
+                <a href="privacy.html" class="hover:text-slate-300 transition-colors" data-i18n="footer_privacy">Privacidad</a>
+                <a href="terms.html" class="hover:text-slate-300 transition-colors" data-i18n="footer_terms">Términos</a>
                 <a href="mailto:soporte@quotero.app" class="hover:text-slate-300 transition-colors">soporte@quotero.app</a>
             </div>
         </div>
     </footer>
 
-    <!-- Script de Inicialización de Íconos Lucide y Menú Móvil -->
+    <!-- Script de Idioma (Bilingüe ES / EN) y Menú Móvil -->
     <script>
         lucide.createIcons();
 
+        // Menú Móvil
         const btn = document.getElementById('mobileMenuBtn');
         const menu = document.getElementById('mobileMenu');
         if (btn && menu) {
@@ -591,6 +716,258 @@
                 menu.classList.toggle('hidden');
             });
         }
+
+        // Diccionario Bilingüe
+        const i18n = {
+            es: {
+                nav_features: "Características",
+                nav_templates: "Plantillas PDF",
+                nav_pricing: "Planes",
+                nav_faq: "Preguntas",
+                nav_web_station: "Estación Web",
+                nav_download: "Descargar App",
+                hero_pill: "El nuevo estándar ágil para contratistas y profesionales",
+                hero_title_1: "Cotizaciones que se aprueban",
+                hero_title_highlight: "más rápido",
+                hero_desc: "Elabora presupuestos ejecutivos en PDF, fírmalos digitalmente en pantalla y envíalos a tus clientes por WhatsApp o correo en menos de 60 segundos. Funciona 100% sin internet en tu teléfono celular y se sincroniza en tiempo real con tu computadora.",
+                hero_cta_web: "Probar Gratis en la Web",
+                hero_cta_mobile: "Descargar para Celular",
+                badge_offline: "100% Offline-First",
+                badge_no_signup: "Sin registros obligatorios",
+                badge_clean_pdf: "PDFs limpios y vectoriales",
+                mockup_sync: "Sincronizado en tiempo real",
+                mockup_doc_type: "Cotización Formal",
+                mockup_client: "Cliente:",
+                mockup_validity: "Vigente: 15 días",
+                mockup_th_concept: "CONCEPTO / SERVICIO",
+                mockup_th_total: "SUBTOTAL",
+                mockup_item1_title: "Instalación eléctrica y tablero trifásico",
+                mockup_item1_sub: "Incluye certificación y mano de obra calificada",
+                mockup_item2_title: "Luminarias LED industriales 100W (x6)",
+                mockup_item2_sub: "Garantía del fabricante 2 años",
+                mockup_total_label: "Total a Facturar",
+                mockup_taxes_included: "Impuestos y desglose incluidos",
+                mockup_signature_title: "Firma Digital Autorizada",
+                mockup_authenticated: "Autenticada",
+                mockup_share_wa: "Compartir por WhatsApp",
+                mockup_dl_pdf: "Descargar PDF Ejecutivo",
+                feat_tag: "Ingeniería para el Trabajo Real",
+                feat_title: "Todo lo que necesitas para cerrar tratos sin perder tiempo.",
+                feat_sub: "Olvídate de Word, Excel desconfigurado o apps complejas que requieren internet obligatorio en plena obra o visita a clientes.",
+                feat1_title: "100% Offline-First",
+                feat1_desc: "Crea documentos, consulta precios y genera PDFs sin conexión a internet. Cuando recuperas señal, se sincroniza automáticamente con la nube.",
+                feat2_title: "Móvil & Computadora",
+                feat2_desc: "Inicia un presupuesto en tu teléfono en la calle y termínalo cómodamente en tu laptop desde la Estación Web (app.quotero.app).",
+                feat3_title: "Firma Digital en Pantalla",
+                feat3_desc: "Dibuja tu firma gráfica con el dedo en tu celular. Queda incrustada en alta resolución vectorial con sello de autenticidad en cada PDF.",
+                feat4_title: "Multi-Empresa Independiente",
+                feat4_desc: "¿Manejas más de un negocio? Con el Plan PRO gestiona hasta 5 empresas distintas, cada una con su propio logotipo, catálogo de precios y numeración.",
+                feat5_title: "8 Plantillas Ejecutivas",
+                feat5_desc: "Diseños clásicos, modernos, corporativos y minimalistas. Personaliza tus colores de marca para entregar presupuestos con presencia impecable.",
+                feat6_title: "Tus Datos Son Tuyos",
+                feat6_desc: "Respaldos locales en un toque (.JSON) y cifrado de grado bancario (TLS 1.3 + AES-256) en la nube. Jamás vendemos tu base de clientes a terceros.",
+                tpl_tag: "Diseño Ejecutivo y Profesional",
+                tpl_title: "8 Plantillas PDF para cada tipo de negocio",
+                tpl_desc: "Desde estimaciones minimalistas de 1 página hasta presupuestos corporativos con desglose de anticipos e impuestos.",
+                tpl1_name: "Clásica Tradicional",
+                tpl1_desc: "Limpia, sobria y de lectura directa. Ideal para todo tipo de oficios y servicios comerciales.",
+                tpl2_name: "Ejecutiva Moderna",
+                tpl2_desc: "Encabezado de color corporativo, desglose visual de anticipos y firma digital destacada.",
+                tpl3_name: "Minimalista de Alto Impacto",
+                tpl3_desc: "Tipografía elegante en escala de grises para agencias de diseño, consultores y freelancers.",
+                tpl4_name: "Contratista & Servicios",
+                tpl4_desc: "Enfoque detallado en materiales, mano de obra, validez temporal y términos de pago.",
+                tpl_free_badge: "Incluida en Plan Gratis",
+                tpl_pro_badge: "Plan Quotero PRO",
+                tpl_bar_title: "Catálogo Completo de 8 Estilos:",
+                price_tag: "Planes Simples y Claros",
+                price_title: "Comienza gratis. Escala cuando tu negocio crezca.",
+                price_desc: "Sin comisiones ocultas ni sorpresas al facturar.",
+                plan_free_tag: "Plan Base",
+                plan_free_name: "Gratuito",
+                plan_free_desc: "Ideal para independientes que están comenzando o tienen bajo volumen mensual.",
+                plan_free_period: "para siempre",
+                plan_free_item1: "Hasta 4 documentos nuevos por mes",
+                plan_free_item2: "1 perfil de empresa o negocio",
+                plan_free_item3: "2 plantillas base en PDF",
+                plan_free_item4: "100% almacenamiento local en el celular",
+                plan_free_item5: "Marca de agua en PDF",
+                plan_free_cta: "Usar Plan Gratis",
+                plan_pro_badge: "Recomendado",
+                plan_pro_tag: "Profesionales & Negocios",
+                plan_pro_desc: "Acceso total e ilimitado para quienes facturan activamente semana a semana.",
+                plan_pro_period: "/ mes o $39.99 / año (7 días de prueba gratis)",
+                plan_pro_item1: "Documentos y cotizaciones ilimitadas",
+                plan_pro_item2: "Cero marcas de agua (PDFs 100% con tu marca)",
+                plan_pro_item3: "Hasta 5 empresas independientes",
+                plan_pro_item4: "Todas las 8 plantillas ejecutivas avanzadas",
+                plan_pro_item5: "Firma digital autorizada en pantalla",
+                plan_pro_item6: "Sincronización en la nube y Estación Web",
+                plan_pro_cta: "Comenzar Prueba Gratis",
+                faq_tag: "Resolvemos tus Dudas",
+                faq_title: "Preguntas Frecuentes",
+                faq1_q: "¿Funciona la aplicación sin conexión a internet?",
+                faq1_a: "Sí, totalmente. Quotero fue diseñada con arquitectura Offline-First. Toda tu información comercial, clientes y productos se guardan en la memoria segura de tu teléfono. Puedes crear cotizaciones y emitir PDFs en medio de una visita o en carretera sin señal. En cuanto te conectes a internet, si tienes cuenta vinculada, se respaldará automáticamente.",
+                faq2_q: "¿Cómo puedo acceder a mis datos desde la computadora?",
+                faq2_a: "Basta con vincular tu correo electrónico en la app móvil (tocando el ícono de la nube) con tu Plan PRO activo. Luego abres app.quotero.app en cualquier navegador de PC o Mac, introduces tu correo y recibirás un código de acceso de un solo uso. Tus cotizaciones y catálogo aparecerán de inmediato.",
+                faq3_q: "¿Mis clientes necesitan descargar una aplicación para ver o firmar?",
+                faq3_a: "No, en lo absoluto. Puedes enviarles el archivo PDF directo por WhatsApp o correo, o enviarles un enlace web interactivo seguro que se abre en el navegador de su teléfono o computadora sin instalar nada.",
+                faq4_q: "¿Puedo cancelar mi suscripción en cualquier momento?",
+                faq4_a: "Sí, con total libertad. La suscripción se gestiona directamente a través de las tiendas oficiales (Google Play Store o Apple App Store). Puedes desactivar la renovación automática en los ajustes de tu cuenta con 1 toque y conservarás tus funciones PRO hasta el final del periodo facturado.",
+                cta_final_title: "Empieza hoy a enviar presupuestos que impresionan.",
+                cta_final_desc: "Únete a miles de profesionales independientes y contratistas que ahorran horas de oficina cada semana con Quotero.",
+                cta_open_web: "Abrir Estación Web",
+                cta_stores: "Próximamente en Play Store & App Store",
+                footer_by: "Desarrollado y operado por",
+                footer_privacy: "Privacidad",
+                footer_terms: "Términos"
+            },
+            en: {
+                nav_features: "Features",
+                nav_templates: "PDF Templates",
+                nav_pricing: "Pricing",
+                nav_faq: "FAQ",
+                nav_web_station: "Web Station",
+                nav_download: "Download App",
+                hero_pill: "The agile standard for contractors and independent pros",
+                hero_title_1: "Estimates that get approved",
+                hero_title_highlight: "faster",
+                hero_desc: "Create executive PDF quotes, sign digitally on screen, and send them to clients via WhatsApp or email in under 60 seconds. Works 100% offline on your mobile phone and syncs seamlessly to your desktop.",
+                hero_cta_web: "Try Free on Web",
+                hero_cta_mobile: "Download for Mobile",
+                badge_offline: "100% Offline-First",
+                badge_no_signup: "No signup required",
+                badge_clean_pdf: "Vector-crisp PDFs",
+                mockup_sync: "Synced in real time",
+                mockup_doc_type: "Formal Estimate",
+                mockup_client: "Client:",
+                mockup_validity: "Valid: 15 days",
+                mockup_th_concept: "ITEM / SERVICE",
+                mockup_th_total: "SUBTOTAL",
+                mockup_item1_title: "Electrical installation & three-phase panel",
+                mockup_item1_sub: "Includes official certification & certified labor",
+                mockup_item2_title: "Industrial 100W LED fixtures (x6)",
+                mockup_item2_sub: "Manufacturer warranty 2 years",
+                mockup_total_label: "Total Due",
+                mockup_taxes_included: "Taxes & itemization included",
+                mockup_signature_title: "Authorized Digital Signature",
+                mockup_authenticated: "Verified",
+                mockup_share_wa: "Share via WhatsApp",
+                mockup_dl_pdf: "Download Executive PDF",
+                feat_tag: "Engineered for Real-World Work",
+                feat_title: "Everything you need to close deals without losing time.",
+                feat_sub: "Ditch complicated spreadsheets, broken Word templates, or slow software that demands an active internet connection on job sites.",
+                feat1_title: "100% Offline-First",
+                feat1_desc: "Create documents, review prices, and export PDFs completely offline. As soon as you reconnect, your data syncs securely to the cloud.",
+                feat2_title: "Mobile & Desktop Station",
+                feat2_desc: "Start an estimate on your phone on the field, and finalize it comfortably from your desktop browser on app.quotero.app.",
+                feat3_title: "On-Screen Digital Signature",
+                feat3_desc: "Draw your signature directly with your finger. Embedded with vector crispness and an authenticity seal on every exported PDF.",
+                feat4_title: "Independent Multi-Company",
+                feat4_desc: "Run more than one brand? With the PRO Plan manage up to 5 distinct businesses, each with their own logo, catalog, and numbering sequence.",
+                feat5_title: "8 Executive PDF Templates",
+                feat5_desc: "Classic, Modern, Corporate, and Minimal layouts. Customize your brand colors to deliver quotes with remarkable credibility.",
+                feat6_title: "Your Data Belongs to You",
+                feat6_desc: "Instant local backups (.JSON) and bank-grade encryption (TLS 1.3 + AES-256) in the cloud. We never monetize or sell your client base.",
+                tpl_tag: "Executive & Professional Design",
+                tpl_title: "8 PDF Layouts for Every Business Sector",
+                tpl_desc: "From single-page minimal estimates to executive corporate proposals with deposit and tax breakdowns.",
+                tpl1_name: "Classic Standard",
+                tpl1_desc: "Clean, balanced, and straightforward. Ideal for all trade and commercial services.",
+                tpl2_name: "Modern Executive",
+                tpl2_desc: "Corporate banner color accent, visual deposit tracking, and prominent digital signature.",
+                tpl3_name: "Minimalist Impact",
+                tpl3_desc: "Elegant grayscale typography designed for creative agencies, consultants, and tech freelancers.",
+                tpl4_name: "Contractor & Trade",
+                tpl4_desc: "Detailed focus on materials, labor, timeline validity, and milestone payment schedules.",
+                tpl_free_badge: "Included in Free Plan",
+                tpl_pro_badge: "Quotero PRO Plan",
+                tpl_bar_title: "Full 8 Layouts Catalog:",
+                price_tag: "Clear & Transparent Pricing",
+                price_title: "Start free. Upgrade when your business grows.",
+                price_desc: "No hidden transaction fees or surprise billing.",
+                plan_free_tag: "Starter Tier",
+                plan_free_name: "Free",
+                plan_free_desc: "Perfect for independent pros starting out or with low monthly volume.",
+                plan_free_period: "forever",
+                plan_free_item1: "Up to 4 new documents per month",
+                plan_free_item2: "1 company / business profile",
+                plan_free_item3: "2 standard PDF templates",
+                plan_free_item4: "100% on-device local storage",
+                plan_free_item5: "PDF watermark included",
+                plan_free_cta: "Use Free Tier",
+                plan_pro_badge: "Recommended",
+                plan_pro_tag: "Professionals & Businesses",
+                plan_pro_desc: "Full unlimited access for professionals invoicing actively week to week.",
+                plan_pro_period: "/ month or $39.99 / year (7-day free trial)",
+                plan_pro_item1: "Unlimited quotes and receipts",
+                plan_pro_item2: "Zero watermarks (100% your brand)",
+                plan_pro_item3: "Up to 5 independent companies",
+                plan_pro_item4: "All 8 executive PDF templates",
+                plan_pro_item5: "Authorized digital signature on screen",
+                plan_pro_item6: "Encrypted Cloud Sync & Desktop Web Station",
+                plan_pro_cta: "Start 7-Day Free Trial",
+                faq_tag: "Frequently Asked Questions",
+                faq_title: "Frequently Asked Questions",
+                faq1_q: "Does the app work without an internet connection?",
+                faq1_a: "Yes, 100%. Quotero is built with an Offline-First architecture. All your business records, clients, and items are saved securely on your phone. You can create quotes and generate PDFs on-site or on the road without cell signal. Once you reconnect, your linked cloud account backs up automatically.",
+                faq2_q: "How can I access my records from my computer?",
+                faq2_a: "Simply link your email in the mobile app (by tapping the cloud icon) with your active PRO Plan. Then navigate to app.quotero.app from any desktop browser, enter your email, and verify your one-time passkey. Your quotes and catalog will be available immediately.",
+                faq3_q: "Do my clients need to install an app to view or sign?",
+                faq3_a: "No, absolutely not. You can dispatch the PDF file directly via WhatsApp or email, or send them a secure interactive web link that opens in any mobile or desktop browser without installing anything.",
+                faq4_q: "Can I cancel my subscription at any time?",
+                faq4_a: "Yes, anytime with complete freedom. Subscriptions are processed through official stores (Google Play Store or Apple App Store). You can turn off auto-renewal in your store settings with 1 tap and keep your PRO features until the end of your billing cycle.",
+                cta_final_title: "Start delivering quotes that win clients today.",
+                cta_final_desc: "Join thousands of independent contractors and field service technicians saving hours of administrative work with Quotero.",
+                cta_open_web: "Open Web Station",
+                cta_stores: "Coming soon to Play Store & App Store",
+                footer_by: "Engineered and operated by",
+                footer_privacy: "Privacy Policy",
+                footer_terms: "Terms of Service"
+            }
+        };
+
+        function setLanguage(lang) {
+            const strings = i18n[lang];
+            if (!strings) return;
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (strings[key]) {
+                    el.innerHTML = strings[key];
+                }
+            });
+
+            // Actualizar estilo visual de los botones
+            const esActive = lang === 'es';
+            const esClasses = esActive ? ['bg-sky-500/20', 'text-sky-400', 'font-bold'] : ['text-slate-400'];
+            const enClasses = !esActive ? ['bg-sky-500/20', 'text-sky-400', 'font-bold'] : ['text-slate-400'];
+
+            const setBtnState = (btn, activeClasses, inactiveClasses) => {
+                if (!btn) return;
+                btn.className = 'px-2.5 py-1 rounded-lg transition-all ' + (activeClasses.join(' '));
+            };
+
+            setBtnState(document.getElementById('langEsBtn'), esClasses, enClasses);
+            setBtnState(document.getElementById('langEnBtn'), enClasses, esClasses);
+            setBtnState(document.getElementById('mobileLangEsBtn'), esClasses, enClasses);
+            setBtnState(document.getElementById('mobileLangEnBtn'), enClasses, esClasses);
+
+            document.documentElement.lang = lang;
+            try { localStorage.setItem('quotero_lang', lang); } catch (e) {}
+            lucide.createIcons();
+        }
+
+        document.getElementById('langEsBtn')?.addEventListener('click', () => setLanguage('es'));
+        document.getElementById('langEnBtn')?.addEventListener('click', () => setLanguage('en'));
+        document.getElementById('mobileLangEsBtn')?.addEventListener('click', () => setLanguage('es'));
+        document.getElementById('mobileLangEnBtn')?.addEventListener('click', () => setLanguage('en'));
+
+        // Cargar preferencia guardada
+        try {
+            const saved = localStorage.getItem('quotero_lang');
+            if (saved === 'en') setLanguage('en');
+        } catch (e) {}
     </script>
 </body>
 </html>
